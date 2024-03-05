@@ -13,16 +13,15 @@ import re
 import math
 from collections import OrderedDict
 import multiprocessing
-from tensorflow import keras
 import numpy as np
 import tensorflow as tf
-import keras as keras
-import keras.backend as K
-import keras.layers as KL
-import keras.layers as KE
-import keras.utils as KU
+import tensorflow.keras as keras
+import tensorflow.keras.backend as K
+import tensorflow.keras.layers as KL
+import tensorflow.keras.layers as KE
+import tensorflow.keras.utils as KU
 from tensorflow.python.eager import context
-import keras.models as KM
+import tensorflow.keras.models as KM
 
 from mrcnn import utils
 
@@ -2183,7 +2182,7 @@ class MaskRCNN(object):
         """Downloads ImageNet trained weights from Keras.
         Returns path to weights file.
         """
-        from keras.utils import get_file
+        from tensorflow.keras.utils import get_file
         TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/'\
                                  'releases/download/v0.2/'\
                                  'resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
@@ -2198,7 +2197,7 @@ class MaskRCNN(object):
         metrics. Then calls the Keras compile() function.
         """
         # Optimizer object
-        optimizer = tf.keras.optimizers.legacy.SGD(
+        optimizer = tf.keras.optimizers.SGD(
             lr=learning_rate, momentum=momentum,
             clipnorm=self.config.GRADIENT_CLIP_NORM)
         # Add Losses
